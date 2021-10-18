@@ -107,22 +107,30 @@ class Town {
         return this.residentsNumber + this.name
     }
 
-    static returnObj(...obj) {
-        return Math.max(...obj);
+    static returnMostResidents(array){
+        let max=arrayOfObj[0]
+        for (const object of array) {
+            if (object.residentsNumber>max.residentsNumber) {
+                max=object
+            }
+        }
+        return max;
 
     }
 
 };
 
 let Town1 = new Town(150000, "haifa");
+
 // console.log(Town1);
-console.log(Town1.returnToString());
+// console.log(Town1.returnToString());
+
 
 
 
 class Country extends Town {
     returnType() {
-        return `${this.returnToString()} + ${this.constructor.name}`
+        return `${super.returnToString()} + ${this.constructor.name}`
     }
 
 }
@@ -130,7 +138,7 @@ class Country extends Town {
 
 class Locality extends Town {
     returnType() {
-        return `${this.returnToString()} + ${this.constructor.name}`
+        return `${super.returnToString()} + ${this.constructor.name}`
     }
 
 }
@@ -139,7 +147,7 @@ class Locality extends Town {
 
 class Village extends Town {
     returnType() {
-        return `${this.returnToString()} + ${this.constructor.name}`
+        return `${super.returnToString()} + ${this.constructor.name}`
     }
 
 }
@@ -153,12 +161,19 @@ console.log(Locality1.returnType());
 console.log(Village1.returnType());
 
 
-///B//
-console.log(Town.returnObj(counter1.residentsNumber, Locality1.residentsNumber, Village1.residentsNumber));
-///B//
+
+////////////////////! B
+
+let arrayOfObj=[counter1,Locality1,Village1,Town1];
+
+console.log(Town.returnMostResidents(arrayOfObj));
+
+////////////////////! B
 
 
-// צרו טופס שמקבל נתונים מהמשתמש ועל פי הטופס יוצרת את 
+
+
+// 5. צרו טופס שמקבל נתונים מהמשתמש ועל פי הטופס יוצרת את 
 // האובייקט המתאים ומוסיפה אותו לטבלה מתחת לטופס.
 
 let first = document.getElementById("first");
@@ -171,25 +186,25 @@ let table = document.getElementById("table");
 btn.onclick = () => {
     switch (type.value) {
         case "Town":
-        let town2=new Town (first.value,residents.value,type.value);
-        table.innerHTML+=`<tr><td>  Town: </td> <td>${town2.residentsNumber} </td> <td>${town2.name} </td> </tr>`
+            let town2 = new Town(first.value, residents.value, type.value);
+            table.innerHTML += `<tr><td>  Town: </td> <td>${town2.residentsNumber} </td> <td>${town2.name} </td> </tr>`
             break;
 
         case "Country":
-        let Country2=new Town (first.value,residents.value,type.value);
-        table.innerHTML+=`<tr><td>  Country: </td> <td>${Country2.residentsNumber} </td> <td>${Country2.name} </td> </tr>`
+            let Country2 = new Town(first.value, residents.value, type.value);
+            table.innerHTML += `<tr><td>  Country: </td> <td>${Country2.residentsNumber} </td> <td>${Country2.name} </td> </tr>`
 
             break;
 
         case "Locality":
-        let Locality2=new Town (first.value,residents.value,type.value);
-        table.innerHTML+=`<tr><td>  Locality: </td> <td>${Locality2.residentsNumber} </td> <td>${Locality2.name} </td> </tr>`
+            let Locality2 = new Town(first.value, residents.value, type.value);
+            table.innerHTML += `<tr><td>  Locality: </td> <td>${Locality2.residentsNumber} </td> <td>${Locality2.name} </td> </tr>`
 
             break;
 
         case "Village":
-        let Village2=new Town (first.value,residents.value,type.value);
-        table.innerHTML+=`<tr><td>  Village: </td> <td>${Village2.residentsNumber} </td> <td>${Village2.name} </td> </tr>`
+            let Village2 = new Town(first.value, residents.value, type.value);
+            table.innerHTML += `<tr><td>  Village: </td> <td>${Village2.residentsNumber} </td> <td>${Village2.name} </td> </tr>`
 
             break;
 
@@ -197,3 +212,24 @@ btn.onclick = () => {
             break;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
