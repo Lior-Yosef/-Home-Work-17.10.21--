@@ -107,11 +107,11 @@ class Town {
         return this.residentsNumber + this.name
     }
 
-    static returnMostResidents(array){
-        let max=arrayOfObj[0]
+    static returnMostResidents(array) {
+        let max = arrayOfObj[0]
         for (const object of array) {
-            if (object.residentsNumber>max.residentsNumber) {
-                max=object
+            if (object.residentsNumber > max.residentsNumber) {
+                max = object
             }
         }
         return max;
@@ -164,7 +164,7 @@ console.log(Village1.returnType());
 
 ////////////////////! B
 
-let arrayOfObj=[counter1,Locality1,Village1,Town1];
+let arrayOfObj = [counter1, Locality1, Village1, Town1];
 
 console.log(Town.returnMostResidents(arrayOfObj));
 
@@ -212,24 +212,5 @@ btn.onclick = () => {
             break;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
